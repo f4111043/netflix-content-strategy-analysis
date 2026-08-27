@@ -1,4 +1,4 @@
--- 02_data_cleaning.sql
+-- 03_data_cleaning.sql
 -- Issue: Some rows have their columns shifted — when the original
 -- `rating` value was missing, the `duration` value shifted left
 -- into the `rating` column (e.g. rating = "74 min").
