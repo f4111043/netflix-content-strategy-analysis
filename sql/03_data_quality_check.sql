@@ -1,11 +1,14 @@
--- 02_data_quality_check.sql
--- Quality checks performed on the raw table (netflix_titles).
+-- 03_data_quality_check.sql
+-- Quality checks performed after the column-shift fix (02_data_cleaning.sql),
+-- to confirm that fix was correctly applied and to check for any
+-- remaining data quality issues.
 --
--- Note: A column-shift issue was first identified by manually inspecting
--- the table preview — some rows had duration-like values (e.g. "74 min")
--- appearing in the `rating` column, with `duration` showing NULL instead.
--- This was fixed separately in 03_data_cleaning.sql. The checks below
--- cover the remaining systematic checks, plus verification of that fix.
+-- Note: The column-shift issue itself was first identified by manually
+-- inspecting the table preview — some rows had duration-like values
+-- (e.g. "74 min") appearing in the `rating` column, with `duration`
+-- showing NULL instead. That issue was fixed in 02_data_cleaning.sql.
+-- The checks below cover the remaining systematic checks, plus
+-- verification of that fix.
 
 -- 1) Duplicate rows check (by show_id, which should be unique)
 -- Result: 0 rows -> no duplicates
