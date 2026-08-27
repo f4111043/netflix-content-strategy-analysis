@@ -1,8 +1,14 @@
--- 03_data_cleaning.sql
--- Issue: Some rows have their columns shifted — when the original
--- `rating` value was missing, the `duration` value shifted left
--- into the `rating` column (e.g. rating = "74 min").
--- This query detects and fixes that shift.
+-- 02_data_cleaning.sql
+--
+-- Issue: While visually inspecting the raw table preview, a column-shift
+-- pattern was spotted — in some rows, when the original `rating` value
+-- was missing, the `duration` value had shifted left into the `rating`
+-- column instead (e.g. rating = "74 min", duration = NULL).
+--
+-- This query detects and fixes that shift. The result is written to a
+-- new table, keeping the original `netflix_titles` table untouched
+-- for reference. (Affected row count and further verification are
+-- documented in 03_data_quality_check.sql.)
 
 CREATE OR REPLACE TABLE `ibm-data-analysis-506010.netflix_portfolio.netflix_titles_clean` AS
 SELECT
@@ -37,3 +43,4 @@ FROM `ibm-data-analysis-506010.netflix_portfolio.netflix_titles`;
 SELECT *
 FROM `ibm-data-analysis-506010.netflix_portfolio.netflix_titles_clean`
 WHERE rating LIKE '%min%' OR rating LIKE '%Season%';
+-- Result: 0 rows returned -> the shift was successfully corrected.
