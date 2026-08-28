@@ -40,7 +40,7 @@ ORDER BY year_added, type;
 -- by 2021 -- consistent with a renewed strategic push into series content.
 -- Note: 2021 absolute title counts appear lower than prior years; this
 -- was investigated and confirmed to be a data coverage artifact rather
--- than a real decline -- see 06_data_caveat_2021_coverage.sql.
+-- than a real decline -- see 06_data_coverage_check.sql.
 
 -- Step 3: Year-over-year growth rate per type
 WITH yearly_counts AS (
@@ -74,4 +74,4 @@ ORDER BY type, year_added;
 -- (through December), so its decline appears to be a real slowdown,
 -- possibly related to pandemic-era production delays; 2021 data ends
 -- in September, so its decline is a data coverage artifact rather
--- than an actual trend -- see 06_data_caveat_2021_coverage.sql.
+-- than an actual trend -- see 06_data_coverage_check.sql.
