@@ -38,9 +38,9 @@ ORDER BY year_added, type;
 -- (2016), then dropped to a low of 25% (2018) as Netflix appears to have
 -- prioritized movie acquisition, before climbing steadily back to 34%
 -- by 2021 -- consistent with a renewed strategic push into series content.
--- Note: absolute title counts also decline in 2020-2021, which may
--- partly reflect incomplete data for the dataset's final collection year
--- rather than an actual slowdown.
+-- Note: 2021 absolute title counts appear lower than prior years; this
+-- was investigated and confirmed to be a data coverage artifact rather
+-- than a real decline -- see 06_data_caveat_2021_coverage.sql.
 
 -- Step 3: Year-over-year growth rate per type
 WITH yearly_counts AS (
@@ -69,6 +69,9 @@ ORDER BY type, year_added;
 -- decelerated steadily through 2019 -- a typical maturing-market pattern.
 -- Notably, from 2019 onward TV Show growth rate exceeds Movie growth
 -- rate (+43.7% vs +15.1% in 2019), aligning with the mix-share shift
--- seen in Step 2. Both types show negative growth in 2020-2021,
--- possibly reflecting pandemic-related production delays and/or
--- incomplete data for the dataset's final collection year.
+-- seen in Step 2. Both types show negative growth in 2020-2021, but
+-- these two years differ in cause: 2020 has full year-round data
+-- (through December), so its decline appears to be a real slowdown,
+-- possibly related to pandemic-era production delays; 2021 data ends
+-- in September, so its decline is a data coverage artifact rather
+-- than an actual trend -- see 06_data_caveat_2021_coverage.sql.
