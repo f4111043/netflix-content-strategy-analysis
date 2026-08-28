@@ -42,8 +42,7 @@ ORDER BY year_added, title_count DESC;
 
 -- Result summary:
 -- Multiple non-English-language markets show rapid growth between
--- 2016-2019, most notably across Asian and Latin American markets,
--- before most countries decline in 2021 
+-- 2016-2019, most notably across Asian and Latin American markets.
 
 -- Step 3: Country diversification over time
 -- Counts the number of distinct countries contributing 5+ titles per year
