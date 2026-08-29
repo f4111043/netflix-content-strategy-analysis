@@ -4,6 +4,7 @@
 -- (e.g. "Dramas, International Movies"), so we split and unnest it,
 -- same approach as used for country in 05_analysis_country_trend.sql.
 
+-- Step 1: Overall genre ranking
 SELECT
   TRIM(genre_split) AS genre,
   COUNT(*) AS title_count
